@@ -1,175 +1,74 @@
+#the lists below are comprised of 3 strings 
+sunday=['Refuel your soul','Take it slow!','Read a good book!']
+monday=['Monday is a state of mind','Hello Monday','New Monday, New Week']
+tuesday=['There will always be Tuesday','Tuesday is cleaning day','Tuesday is not so bad']
+wednesday=['Keep at it!','Consistency is key','Patience is a virtue']
+thursday=['Think positive Thursday!','Thankful Thursday','Friday Eve']
+friday=['Good news:it is Friday!','It all works out!','End of the week!']
+saturday=['Enjoy nature','Take a walk','Get some sunshine!']
+
+# the functions below are meant to tell python to print each element
+# in the related strings separately. Working to accomplish this
+def sun_func():
+	for element in range(0, len(sunday)):
+		print(sunday[element])
+def mon_func():
+	for element in range(0,len(monday)):
+		print(monday[element])
+def tues_func():
+	for element in range(0,len(tuesday)):
+		print(tuesday[element])
+def wed_func():
+	for element in range(0,len(wednesday)):
+		print(wednesday[element])
+def thurs_func():
+	for element in range(0,len(thursday)):
+		print(thursday[element])
+def fri_func():
+	for element in range(0,len(friday)):
+		print(friday[element])
+def sat_func():
+	for element in range(0,len(saturday)):
+		print(saturday[element])
+
+
+ 
 from tkinter import *
-
-class Application(Frame):
-    """
-    An example of a calculator app developed using the 
-    Tkinter GUI.
-    """
-
-    def __init__(self, master):
-        """
-        Initializes the frame.
-        :param master: root.Tk()
-        """
-        Frame.__init__(self, master)
-        self.entry = Entry(master, width=24, font=("Arial",25))
-        self.entry.grid(row=0, column=0, columnspan=6, sticky="w")
-        self.entry.focus_set()
-        self.entry.configure(state="disabled", disabledbackground="white", disabledforeground="black")
-        self.create_widgets()
-        self.bind_buttons(master)
-        self.grid()
-        
-    def add_chr(self, char, btn=None):
-        """
-        Concatenates a character passed from a button press (or key type) 
-        to a string.
-        :param char: string to add passed from a button
-        :param btn: button name to use if key is pressed (to flash)
-        :return: None
-        """
-        self.entry.configure(state="normal")
-        self.flash(btn) # Flash a button correspond to keystroke
-        if self.entry.get() == "Invalid Input":
-            self.entry.delete(0,END)
-        self.entry.insert(END, char)
-        self.entry.configure(state="disabled")
-
-    def clear(self):
-        """
-        Allows user to backspace their entry.
-        :return: None
-        """
-        self.entry.configure(state="normal")
-        if self.entry.get() != "Invalid Input":
-            # Clears full entry when "Invalid Input"
-            text = self.entry.get()[:-1]
-            self.entry.delete(0,END)
-            self.entry.insert(0,text)
-        else:
-            self.entry.delete(0, END)
-        self.entry.configure(state="disabled")
-
-    def clear_all(self):
-        """
-        Allows user to clear the full entry.
-        :return: None
-        """
-        self.entry.configure(state="normal")
-        self.entry.delete(0, END)
-        self.entry.configure(state="disabled")
-
-    
-
-    def flash(self,btn):
-        """
-        Flashes a corresponding button when key is pressed.
-        :param btn: button
-        :return: None
-        """
-        if btn != None:
-            btn.config(bg="yellow")
-            if btn == self.c_bttn:
-                self.clear()
-                self.master.after(100, lambda: btn.config(bg="SystemButtonFace"))
-            elif btn == self.eq_bttn:
-                self.master.after(100, lambda: btn.config(bg="lightgrey"))
-                self.calculate()
-            elif btn == self.ac_bttn:
-                self.clear_all()
-                self.master.after(100, lambda: btn.config(bg="SystemButtonFace"))
-            else:
-                self.master.after(100, lambda: btn.config(bg="SystemButtonFace"))
-        else:
-            pass
-
-    def bind_buttons(self, master):
-        """
-        Binds keys to their appropriate input
-        :param master: root.Tk()
-        :return: None
-        """
-        master.bind("<Return>", lambda event, btn=self.eq_bttn: self.flash(btn))
-        master.bind("<BackSpace>", lambda event, btn=self.c_bttn: self.flash(btn))
-        master.bind("9", lambda event, char="9", btn=self.nine_bttn: self.add_chr(char, btn))
-        master.bind("8", lambda event, char="8", btn=self.eight_bttn: self.add_chr(char, btn))
-        master.bind("7", lambda event, char="7", btn=self.seven_bttn: self.add_chr(char, btn))
-        master.bind("6", lambda event, char="6", btn=self.six_bttn: self.add_chr(char, btn))
-        master.bind("5", lambda event, char="5", btn=self.five_bttn: self.add_chr(char, btn))
-        master.bind("4", lambda event, char="4", btn=self.four_bttn: self.add_chr(char, btn))
-        master.bind("3", lambda event, char="3", btn=self.three_bttn: self.add_chr(char, btn))
-        master.bind("2", lambda event, char="2", btn=self.two_bttn: self.add_chr(char, btn))
-        master.bind("1", lambda event, char="Alexis", btn=self.one_bttn: self.add_chr(char, btn))
-        master.bind("0", lambda event, char="0", btn=self.zero_bttn: self.add_chr(char, btn))
-        master.bind("c", lambda event, btn=self.ac_bttn: self.flash(btn), self.clear_all)
-      
-    
-    def create_widgets(self):
-        """
-        Creates the widgets to be used in the grid.
-        :return: None
-        """
-        
-        self.eq_bttn = Button(self, text="=", width=20, height=3, bg="lightgrey", command=lambda: self.calculate())
-        self.eq_bttn.grid(row=4, column=4, columnspan=2)
-
-
-        self.sub_bttn = Button(self, text="-", width=9, height=3, command=lambda: self.add_chr('-'))
-        self.sub_bttn.grid(row=3, column=3)
-        self.c_bttn = Button(self, text='←', width=9, height=3, command=lambda: self.clear())
-        self.c_bttn.grid(row=1, column=5 )
-      
-
-        self.mod_bttn = Button(self, text="%", width=9, height=3, command=lambda: self.add_chr('%'))
-        self.mod_bttn.grid(row=4, column=2)
-
-        self.seven_bttn = Button(self, text="7", width=9, height=3, command=lambda: self.add_chr(7))
-        self.seven_bttn.grid(row=1, column=0)
-
-        self.eight_bttn = Button(self, text="8", width=9, height=3, command=lambda: self.add_chr(8))
-        self.eight_bttn.grid(row=1, column=1)
-
-        self.nine_bttn = Button(self, text="9", width=9, height=3, command=lambda: self.add_chr(9))
-        self.nine_bttn.grid(row=1, column=2)
-
-        self.four_bttn = Button(self, text="4", width=9, height=3, command=lambda: self.add_chr(4))
-        self.four_bttn.grid(row=2, column=0)
-
-        self.five_bttn = Button(self, text="5", width=9, height=3, command=lambda: self.add_chr(5))
-        self.five_bttn.grid(row=2, column=1)
-
-        self.six_bttn = Button(self, text="6", width=9, height=3, command=lambda: self.add_chr(6))
-        self.six_bttn.grid(row=2, column=2)
-
-        self.one_bttn = Button(self, text="Alexis", width=9, height=3, command=lambda: self.add_chr("Yampierre"))
-        self.one_bttn.grid(row=3, column=0)
-
-        self.two_bttn = Button(self, text="2", width=9, height=3, command=lambda: self.add_chr(2))
-        self.two_bttn.grid(row=3, column=1)
-
-        self.three_bttn = Button(self, text="3", width=9, height=3, command=lambda: self.add_chr(3))
-        self.three_bttn.grid(row=3, column=2)
-
-        self.zero_bttn = Button(self, text="0", width=9, height=3, command=lambda: self.add_chr(0))
-        self.zero_bttn.grid(row=4, column=0)
-
-        self.dec_bttn = Button(self, text=".", width=9, height=3, command=lambda: self.add_chr('.'))
-        self.dec_bttn.grid(row=4, column=1)
-
-        self.lpar_bttn = Button(self, text="(", width=9, height=3, command=lambda: self.add_chr('('))
-        self.lpar_bttn.grid(row=2, column=4)
-
-        self.rpar_bttn = Button(self, text=")", width=9, height=3, command=lambda: self.add_chr(')'))
-        self.rpar_bttn.grid(row=2, column=5)
-
-        self.sq_bttn = Button(self, text="√", width=9, height=3, command=lambda: self.add_chr('√('))
-        self.sq_bttn.grid(row=3, column=4)
-
-        self.sqr_bttn = Button(self, text="^", width=9, height=3, command=lambda: self.add_chr('^'))
-        self.sqr_bttn.grid(row=3, column=5)
-
-root = Tk()
-root.geometry()
-root.title("Exciting GUI Calculator")
-app = Application(root)
-root.mainloop()
+from tkinter import ttk
+rw=Tk()
+btn1=ttk.Button(rw,text="Sunday")
+btn1.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn1.config(command=sun_func)
+btn2=ttk.Button(rw,text="Monday")
+btn2.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn2.config(command=mon_func)
+btn3=ttk.Button(rw,text="Tuesday")
+btn3.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn3.config(command=tues_func)
+btn4=ttk.Button(rw,text="Wednesday")
+btn4.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn4.config(command=wed_func)
+btn5=ttk.Button(rw,text="Thursday")
+btn5.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn5.config(command=thurs_func)
+btn6=ttk.Button(rw,text="Friday")
+btn6.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn6.config(command=fri_func)
+btn7=ttk.Button(rw,text="Saturday")
+btn7.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn7.config(command=sat_func)
+rw.mainloop()
