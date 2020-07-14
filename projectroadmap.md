@@ -9,4 +9,13 @@ The code runs well and I expect to use the overall structure for my project, whi
 
 Implemented code from a Youtube video rather than the 'Python Teaching Code' code. The new code is more in line with my project needs as my calculator is for text and not math functions. With this new code, the GUI was not popping up. A classmate suggested I add 'rw.mainloop()' to the end of my coed and this solved the problem.
 
-Emerging task: add monday_fun through sat_func
+Emerging task: add monday_fun through sat_func 
+7-14 
+
+Status of above emerging task: DONE
+
+Although all buttons are on the GUI, in their correct positions, and are displaying the commanded code when pressed, there are a few changes that need to be made. Rather than displaying all 3 strings in a list, I would like to get the function to print each statement one at a time for each time the button is pressed. 
+
+Emerging task: iterate one string at a time
+
+Emerging task: establish a count or seek that re positions the pointer to the first string once all 3 strings have been displayed
