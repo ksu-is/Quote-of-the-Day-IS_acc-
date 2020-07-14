@@ -9,8 +9,10 @@ saturday=['Enjoy nature','Take a walk','Get some sunshine!']
 
 # the functions below are meant to tell python to print each element
 # in the related strings separately. Working to accomplish this
+
+#practice attempting to iterate each line
 def sun_func():
-	for element in range(0, len(sunday)):
+	for element in sunday:
 		print(sunday[element])
 def mon_func():
 	for element in range(0,len(monday)):
