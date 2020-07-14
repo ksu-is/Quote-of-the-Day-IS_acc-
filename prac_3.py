@@ -12,6 +12,12 @@ saturday=['Enjoy nature','Take a walk','Get some sunshine!']
 def sun_func():
 	for element in range(0, len(sunday)):
 		print(sunday[element])
+def mon_func():
+	for element in range(0,len(monday)):
+		print(monday[element])
+def tues_func():
+	for element in range(0,len(tuesday)):
+		print(tuesday[element])
 
  
 from tkinter import *
@@ -22,4 +28,14 @@ btn1.pack()
 #the command is needed to call the fucntion and tell the button what to
 #print
 btn1.config(command=sun_func)
+btn2=ttk.Button(rw,text="Monday")
+btn2.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn2.config(command=mon_func)
+btn3=ttk.Button(rw,text="Tuesday")
+btn3.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn3.config(command=tues_func)
 rw.mainloop()
