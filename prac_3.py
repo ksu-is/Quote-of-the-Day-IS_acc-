@@ -18,6 +18,12 @@ def mon_func():
 def tues_func():
 	for element in range(0,len(tuesday)):
 		print(tuesday[element])
+def wed_func():
+	for element in range(0,len(wednesday)):
+		print(wednesday[element])
+def thurs_func():
+	for element in range(0,len(thursday)):
+		print(thursday[element])
 
  
 from tkinter import *
@@ -38,4 +44,14 @@ btn3.pack()
 #the command is needed to call the fucntion and tell the button what to
 #print
 btn3.config(command=tues_func)
+btn4=ttk.Button(rw,text="Wednesday")
+btn4.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn4.config(command=wed_func)
+btn5=ttk.Button(rw,text="Thursday")
+btn5.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn5.config(command=thurs_func)
 rw.mainloop()
