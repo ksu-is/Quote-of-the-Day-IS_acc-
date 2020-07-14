@@ -24,6 +24,13 @@ def wed_func():
 def thurs_func():
 	for element in range(0,len(thursday)):
 		print(thursday[element])
+def fri_func():
+	for element in range(0,len(friday)):
+		print(friday[element])
+def sat_func():
+	for element in range(0,len(saturday)):
+		print(saturday[element])
+
 
  
 from tkinter import *
@@ -54,4 +61,14 @@ btn5.pack()
 #the command is needed to call the fucntion and tell the button what to
 #print
 btn5.config(command=thurs_func)
+btn6=ttk.Button(rw,text="Friday")
+btn6.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn6.config(command=fri_func)
+btn7=ttk.Button(rw,text="Saturday")
+btn7.pack()
+#the command is needed to call the fucntion and tell the button what to
+#print
+btn7.config(command=sat_func)
 rw.mainloop()
