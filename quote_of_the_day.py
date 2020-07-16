@@ -12,8 +12,9 @@ saturday=['Enjoy nature','Take a walk','Get some sunshine!']
 
 #practice attempting to iterate each line
 def sun_func():
-	for element in sunday:
-		print(sunday[element])
+	with open('sunday.txt') as file:
+		for line in file.readlines():
+			print(line)
 def mon_func():
 	for element in range(0,len(monday)):
 		print(monday[element])
