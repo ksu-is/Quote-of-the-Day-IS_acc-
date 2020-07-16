@@ -35,10 +35,14 @@ def sat_func():
 	for element in range(0,len(saturday)):
 		print(saturday[element])
 
+#these lines do not iterate
+
 
  
 from tkinter import *
+#imports the widgets needed from tkinter
 from tkinter import ttk
+#below code is used to desplay root window
 rw=Tk()
 btn1=ttk.Button(rw,text="Sunday")
 btn1.pack()
@@ -75,4 +79,6 @@ btn7.pack()
 #the command is needed to call the fucntion and tell the button what to
 #print
 btn7.config(command=sat_func)
+
+#adding the code below made the GUI appear on the screen
 rw.mainloop()
