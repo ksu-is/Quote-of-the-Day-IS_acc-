@@ -7,14 +7,15 @@ thursday=['Think positive Thursday!','Thankful Thursday','Friday Eve']
 friday=['Good news:it is Friday!','It all works out!','End of the week!']
 saturday=['Enjoy nature','Take a walk','Get some sunshine!']
 
+
+
 # the functions below are meant to tell python to print each element
 # in the related strings separately. Working to accomplish this
 
 #practice attempting to iterate each line
 def sun_func():
-	with open('sunday.txt') as file:
-		for line in file.readlines():
-			print(line)
+	for element in range(0,len(sunday)):
+		print(sunday[element])
 def mon_func():
 	for element in range(0,len(monday)):
 		print(monday[element])
