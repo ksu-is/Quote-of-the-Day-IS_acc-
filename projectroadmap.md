@@ -19,3 +19,7 @@ Although all buttons are on the GUI, in their correct positions, and are display
 Emerging task: iterate one string at a time
 
 Emerging task: establish a count or seek that re positions the pointer to the first string once all 3 strings have been displayed
+
+7-16-20
+
+Update: tried saving a sunday.txt file that contained a list of 3 strings. Pushed this file to github, and used the url to attempt to open and read lines from this file. A syntax error popped up in the terminal.
