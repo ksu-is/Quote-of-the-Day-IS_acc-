@@ -1,4 +1,8 @@
 # Quote-of-the-Day
+
+NOTE: Final code is in 'quote_of_theP=_day' file.
+Other code is practice.
+
 A calculator application that returns a relevant quote when its corresponding button is pushed.
 
 

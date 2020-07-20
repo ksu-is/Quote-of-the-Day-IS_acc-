@@ -1,5 +1,8 @@
 #Project code example
 
+NOTE: Final code is in 'quote_of_the_day_' file.
+Other code is practice.
+
 This project was inspired by Professor Thomas' calcGUI code located on his Github account page at https://github.com/dominict/pythonteachingcode. 
 The code features uses tkinter to display a calculator on a user's desktop. Features such as math imports, a class, and definitions are used. 
 
